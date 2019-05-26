@@ -14,7 +14,8 @@ ENV PHPIZE_DEPS \
 		re2c
 
 # persistent / runtime deps
-RUN apk add --no-cache \
+RUN  apk update \
+        && apk add --no-cache \
 		ca-certificates \
 		curl \
 		tar \
@@ -244,7 +245,8 @@ RUN apk update \
     && apk add --update --no-cache make git openjdk8
 RUN mkdir /srv/backup && chown jenkins:jenkins /srv/backup
 USER jenkins
-
+RUN echo 2.178-alpine > /usr/share/jenkins/ref/jenkins.install.UpgradeWizard.state
+RUN echo 2.178-alpine > /usr/share/jenkins/ref/jenkins.install.InstallUtil.lastExecVersion
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
 RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
