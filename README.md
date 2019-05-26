@@ -7,7 +7,7 @@ Jenkin com Php 7.2 e composer
 
 **INTRODUÇÃO**
 
-Crie esse formato devido a minha necessidade de fazer deploy contínuio
+Crie esse formato devido a minha necessidade de fazer deploy contínuo
 com test units do php, procurei pegar todos os dados atualizado do
 php-fpm alpine que tenho usado em outros projetos, e está bem
 estável. Copiei o Dockerfile do php:7.2.18-fpm-alpine3.9
