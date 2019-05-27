@@ -250,7 +250,9 @@ RUN echo 2.178-alpine > /usr/share/jenkins/ref/jenkins.install.InstallUtil.lastE
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
 RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
+COPY --chown=jenkins:jenkins config_jenkins /var/jenkins_home
 
-USER root
+
+#USER jenkins
 CMD ["sh","-c","java -jar /usr/share/jenkins/jenkins.war"]
 
